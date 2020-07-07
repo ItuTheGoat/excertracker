@@ -7,7 +7,7 @@ exports.getUsers = async (req, res) => {
   // Get all the users from the users model
   Users.find()
     .then((users) => res.json(users))
-    .catch((error) => res.status(401).json("Error " + error));
+    .catch((error) => res.status(401).json("Error: " + error));
 };
 
 // @desc   Add a User
@@ -21,5 +21,5 @@ exports.addUser = async (req, res, next) => {
   newUser
     .save()
     .then(() => res.json("User added"))
-    .catch((error) => res.status(401).json("Error " + error));
+    .catch((error) => res.status(401).json("Error: " + error));
 };
