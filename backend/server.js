@@ -26,4 +26,11 @@ connection.once("open", () => {
 app.use(cors());
 app.use(express.json());
 
+/* Requiring and then using the routes */
+const userRouter = require("./routes/users");
+const exerciseRouter = require("./routes/exercises");
+
+app.use("/users", userRouter);
+app.use("/exercises", exerciseRouter);
+
 app.listen(PORT, () => console.log(`Server is running in Port: ${PORT}`));
