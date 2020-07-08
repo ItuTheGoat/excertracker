@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-function exerciseList() {
-  return <div>exerciseList</div>;
+export default class ExerciseList extends Component {
+  render() {
+    return <div></div>;
+  }
 }
-
-export default exerciseList;

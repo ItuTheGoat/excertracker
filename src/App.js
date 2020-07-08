@@ -10,12 +10,14 @@ import createExercise from "./components/createExercise";
 function App() {
   return (
     <Router>
-      <Navbar />
-      <br />
-      <Route path="/" exact component={exerciseList} />
-      <Route path="/create" exact component={createExercise} />
-      <Route path="/user" component={createUser} />
-      <Route path="/edit/:id" component={editExercise} />
+      <div className="container">
+        <Navbar />
+        <br />
+        <Route path="/" exact component={exerciseList} />
+        <Route path="/create" exact component={createExercise} />
+        <Route path="/user" component={createUser} />
+        <Route path="/edit/:id" component={editExercise} />
+      </div>
     </Router>
   );
 }

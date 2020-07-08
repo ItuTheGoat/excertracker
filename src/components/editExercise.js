@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-function editExercise() {
-  return <div>editExercise</div>;
+export default class EditExercise extends Component {
+  render() {
+    return <div></div>;
+  }
 }
-
-export default editExercise;
