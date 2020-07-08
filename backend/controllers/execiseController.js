@@ -27,7 +27,7 @@ exports.addExercise = async (req, res) => {
 };
 
 // @desc   Get a specific exercise
-// @route  GET /execises/:id
+// @route  GET /exercises/:id
 // @access Public
 exports.getExercise = async (req, res) => {
   Exercise.findById(req.params.id)
@@ -36,7 +36,7 @@ exports.getExercise = async (req, res) => {
 };
 
 // @desc   Delete a specific exercise
-// @route  DELETE /execises/:id
+// @route  DELETE /exercises/:id
 // @access Public
 exports.deleteExercise = async (req, res) => {
   Exercise.findByIdAndDelete(req.params.id)
@@ -45,7 +45,7 @@ exports.deleteExercise = async (req, res) => {
 };
 
 // @desc   Update a exercise
-// @route  PUT /execises/:id
+// @route  POST /exercises/update/:id
 // @access Public
 exports.updateExercise = async (req, res) => {
   Exercise.findById(req.params.id)
