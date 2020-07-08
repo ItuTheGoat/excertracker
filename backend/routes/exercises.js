@@ -20,6 +20,6 @@ router.route("/:id").get(getExercise);
 router.route("/:id").delete(deleteExercise);
 
 // UPDATE /exercise/:id
-router.route("/:id").put(updateExercise);
+router.route("/update/:id").post(updateExercise);
 
 module.exports = router;

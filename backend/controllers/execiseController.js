@@ -1,4 +1,4 @@
-const Execise = require("../models/exercise.models");
+const Exercise = require("../models/exercise.models");
 
 // @desc   Get all the exercises
 // @route  GET /execises/
@@ -18,7 +18,7 @@ exports.addExercise = async (req, res) => {
   const duration = req.body.duration;
   const date = req.body.date;
 
-  const newExercise = new Execise({ username, description, duration, date });
+  const newExercise = new Exercise({ username, description, duration, date });
 
   newExercise
     .save()
@@ -30,7 +30,7 @@ exports.addExercise = async (req, res) => {
 // @route  GET /execises/:id
 // @access Public
 exports.getExercise = async (req, res) => {
-  Execise.findById(req.params.id)
+  Exercise.findById(req.params.id)
     .then((exercise) => res.json(exercise))
     .catch((error) => res.status(401).json("Error " + error));
 };
@@ -39,7 +39,7 @@ exports.getExercise = async (req, res) => {
 // @route  DELETE /execises/:id
 // @access Public
 exports.deleteExercise = async (req, res) => {
-  Execise.findByIdAndDelete(req.params.id)
+  Exercise.findByIdAndDelete(req.params.id)
     .then((exercise) => res.json("Exercise deleted at id:" + exercise.id))
     .catch((error) => res.status(401).json("Error: " + error));
 };
@@ -48,7 +48,19 @@ exports.deleteExercise = async (req, res) => {
 // @route  PUT /execises/:id
 // @access Public
 exports.updateExercise = async (req, res) => {
-  Execise.findByIdAndUpdate(req.params.id)
-    .then((exercise) => res.json(exercise))
+  Exercise.findById(req.params.id)
+    .then((exercise) => {
+      exercise.username = req.body.username;
+      exercise.description = req.body.description;
+      exercise.duration = req.body.duration;
+      exercise.date = req.body.date;
+
+      exercise
+        .save()
+        .then(() =>
+          res.json("Exercise at id: " + req.params.id + " was updated!")
+        )
+        .catch((error) => res.status(400).json("Error: " + error));
+    })
     .catch((error) => res.status(401).json("Error: " + error));
 };
