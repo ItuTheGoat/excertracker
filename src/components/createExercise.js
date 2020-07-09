@@ -26,21 +26,18 @@ export default class CreateExercise extends Component {
     this.setState({
       username: e.target.value,
     });
-    console.log(this.state.username);
   };
 
   onChangeDescription = (e) => {
     this.setState({
       description: e.target.value,
     });
-    console.log(this.state.description);
   };
 
   onChangeDuration = (e) => {
     this.setState({
       duration: e.target.value,
     });
-    console.log(this.state.duration);
   };
 
   onChangeDate = (date) => {
@@ -52,13 +49,15 @@ export default class CreateExercise extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    const { username, description, duration, date } = this.state;
+
     const exercise = {
-      username: this.state.username,
-      description: this.state.description,
-      duration: this.state.duration,
-      date: this.state.date,
+      username,
+      description,
+      duration,
+      date,
     };
-    // console.log(exercise);
+    console.log(exercise);
     // Gets the current page and redirects to here after the method runs
     window.location = "/";
   };
