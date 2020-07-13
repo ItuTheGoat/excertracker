@@ -22,7 +22,7 @@ export default class EditExercise extends Component {
       .then((response) => {
         this.setState({
           username: response.data.username,
-          descripton: response.data.description,
+          description: response.data.description,
           duration: response.data.duration,
           date: new Date(response.data.date),
         });
@@ -44,7 +44,7 @@ export default class EditExercise extends Component {
         console.log("Error: " + error);
       });
 
-    console.log(this.state.description);
+    console.log(this.state.username);
   }
 
   onChangeUsername = (e) => {
@@ -86,7 +86,7 @@ export default class EditExercise extends Component {
 
     // Make the post request using axios
     axios
-      .post(
+      .put(
         "http://localhost:5000/exercises/update/" + this.props.match.params.id,
         exercise
       )
