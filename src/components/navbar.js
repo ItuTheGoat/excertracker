@@ -1,46 +1,22 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
+import { Navbar, Nav } from "react-bootstrap";
 
-class Navbar extends Component {
+class navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">
-          ExcerTracker
-        </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <Link to="/" className="nav-link">
-                Exercises
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/create" className="nav-link">
-                Create Exercise
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/user" className="nav-link">
-                Create User
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="/">ExcerTracker</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ml-auto" activeKey={window.location.pathname}>
+            <Nav.Link href="/">Exercise</Nav.Link>
+            <Nav.Link href="/create">Create Exercise</Nav.Link>
+            <Nav.Link href="/user">Create User</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }
 
-export default Navbar;
+export default navbar;
