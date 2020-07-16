@@ -34,6 +34,7 @@ export default class CreateUser extends Component {
       });
     // Gets the current page and redirects to here after the method runs
     this.setState({ username: "" });
+    // window.location = "/";
   };
 
   render() {
